@@ -7,6 +7,7 @@ function Layout() {
             <Link to="/topics">Topics</Link>
             <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
+            <Link to="/topics/create">Create Topic</Link>
         </nav>
     )
 }

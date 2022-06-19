@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Link } from 'react-router-dom'
 import PostList from "./PostList";
 import React from 'react'
+import PostCreate from "./PostCreate";
 
 const topicDetails = {
+    id: 1,
     title: "where?",
     createdBy: "user",
     responses: [
@@ -31,6 +33,8 @@ function TopicDetails() {
             <h3>topic created by: {topicDetails.createdBy}</h3>
             <h2>topic title: {topicDetails.title}</h2>
             <PostList posts={topicDetails.responses} />
+            <PostCreate topicId={topicDetails.id}/>
+            {/* <Link to={`/topics/${topicDetails.id}/reply`}>Reply to topic</Link> */}
         </>
     )
 }
