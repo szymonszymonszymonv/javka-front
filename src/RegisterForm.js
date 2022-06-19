@@ -1,8 +1,16 @@
 import { useState } from "react"
 import React from 'react'
+import axiosInstance from "./axiosInstance"
 
 const RegisterSend = (data) => {
     // post data to api
+    axiosInstance.post('/registration', data)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
 }
 
 function RegisterForm() {
@@ -41,11 +49,11 @@ function RegisterForm() {
             </label>
             <label>
                 user
-                <input type="radio" name="roleUser" checked={role === "user"} onChange={() => {setRole("user")}}></input>
+                <input type="radio" name="roleUser" checked={role === "USER"} onChange={() => {setRole("USER")}}></input>
             </label>
             <label>
                 admin
-                <input type="radio" name="roleAdmin" checked={role === "admin"} onChange={() => {setRole("admin")}}></input>
+                <input type="radio" name="roleAdmin" checked={role === "ADMIN"} onChange={() => {setRole("ADMIN")}}></input>
             </label>
             <button type="submit" onClick={RegisterSend(newUser)}>Submit</button>
         </>
