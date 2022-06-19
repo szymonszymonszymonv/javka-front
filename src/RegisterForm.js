@@ -55,7 +55,7 @@ function RegisterForm() {
                 admin
                 <input type="radio" name="roleAdmin" checked={role === "ADMIN"} onChange={() => {setRole("ADMIN")}}></input>
             </label>
-            <button type="submit" onClick={RegisterSend(newUser)}>Submit</button>
+            <button type="submit" onClick={() => {RegisterSend(newUser)}}>Submit</button>
         </>
     )
 }
