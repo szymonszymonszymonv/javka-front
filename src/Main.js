@@ -21,7 +21,7 @@ function Main() {
                 <Route path="/topics/create" element={<TopicCreate />} />
                 <Route path="/topics/:topicId/reply" element={<PostCreate />} />
                 <Route path="/register" element={<RegisterForm />} />
-                {/* <Route path="/login" element={<LoginForm/>} /> */}
+                <Route path="/login" element={<LoginForm />} />
             </Routes>
             <Outlet />
         </div>
