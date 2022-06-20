@@ -2,7 +2,7 @@ import { useState } from "react"
 import React from 'react'
 import axiosInstance from "./axiosInstance"
 
-const RegisterSend = (data) => {
+const registerSend = (data) => {
     // post data to api
     axiosInstance.post('/registration', data)
         .then(response => {
@@ -55,7 +55,7 @@ function RegisterForm() {
                 admin
                 <input type="radio" name="roleAdmin" checked={role === "ADMIN"} onChange={() => {setRole("ADMIN")}}></input>
             </label>
-            <button type="submit" onClick={() => {RegisterSend(newUser)}}>Submit</button>
+            <button type="submit" onClick={() => {registerSend(newUser)}}>Submit</button>
         </>
     )
 }

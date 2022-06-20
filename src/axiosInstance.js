@@ -5,7 +5,13 @@ const axiosInstance = axios.create({
   })
 axiosInstance.interceptors.request.use(config => {
     const token = localStorage.getItem("token")
-    config.headers.Authorization = token ? token : ""
+    if(token){
+        config.headers.Authorization = token
+    }
+    else{
+        delete config.headers.Authorization
+    }
+    return config
 })
 
 export default axiosInstance
