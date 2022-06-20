@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route, Outlet } from 'react-router-dom'
 
 import Home from './Home'
@@ -13,6 +13,9 @@ import Logout from './Logout'
 
 function Main() {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => {
+        setIsLoggedIn(localStorage.getItem("token") ? true : false)
+    }, [])
     return (
         <div>
             <Layout isLoggedIn={isLoggedIn} />

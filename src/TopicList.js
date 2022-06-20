@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TopicItem from './TopicItem'
 import React from 'react'
+import axiosInstance from './axiosInstance';
 
 const topicList = [
     {
@@ -22,10 +23,24 @@ const topicList = [
         replies: 2
     },
 ]
+const getTopicList = (setTopics) => {
+    console.log("kupka")
+    axiosInstance.get("/topics")
+        .then(response => {
+            console.log(response)
+            setTopics(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
 
 function TopicList() {
     const [topics, setTopics] = useState(topicList)
-
+    useEffect(() => {
+        getTopicList(setTopics)
+        
+    }, [])
     return (
         <div>
             <h2>Topic List</h2>

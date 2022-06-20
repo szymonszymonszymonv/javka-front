@@ -7,9 +7,10 @@ function Layout({isLoggedIn}) {
             <Link to="/topics">Topics</Link>
             {!isLoggedIn ? <Link to="/register">Register</Link> : ""}
             {!isLoggedIn ? <Link to="/login">Login</Link> : ""}
-            {/* <Link to="/login">Login</Link> */}
-            <Link to="/topics/create">Create Topic</Link>
+            {isLoggedIn ? <Link to="/topics/create">Create Topic</Link> : ""}
             {isLoggedIn ? <Link to="/logout">Logout</Link> : ""}
+            {/* <Link to="/login">Login</Link> */}
+            {/* <Link to="/topics/create">Create Topic</Link> */}
             {/* <Link to="/logout">Logout</Link> */}
         </nav>
     )

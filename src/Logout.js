@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 function Logout({setIsLoggedIn}) {
-    localStorage.removeItem("token")
     const navigate = useNavigate()
-    setIsLoggedIn(false)
     useEffect(() => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("username")
+        setIsLoggedIn(false)
         navigate("/")
     }, [])
     return (

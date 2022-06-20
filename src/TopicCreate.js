@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import axiosInstance from './axiosInstance'
 
 const sendTopic = (title) => {
+    const username = localStorage.getItem("username")
+    const token = localStorage.getItem("token")
     const data = {
         title: title,
-        // user id? cookie?
+        username: username
     }
     axiosInstance.post(`/topics/create`, data)
     .then(response => {

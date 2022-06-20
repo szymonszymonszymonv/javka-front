@@ -2,16 +2,18 @@ import React from 'react'
 import { useState } from 'react'
 import axiosInstance from './axiosInstance'
 import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
-const sendReply = (message, topicId) => {
+const sendReply = (message, topicId, navigate) => {
     const data = {
-        content: message,
-        topicId: topicId
-        // cookie? user id?
+        content: message
     }
+    console.log("kupcia")
     axiosInstance.post(`/topics/${topicId}/reply`, data)
         .then(response => {
             console.log(response)
+            window.location.reload()
+            // navigate(`/topics/${topicId}`)
         })
         .catch(error => {
             console.log(error)
@@ -20,6 +22,7 @@ const sendReply = (message, topicId) => {
 
 function PostCreate({ topicId }) {
     const [message, setMessage] = useState('')
+    const navigate = useNavigate()
     return (
         <>
             <label>
@@ -29,8 +32,7 @@ function PostCreate({ topicId }) {
 
                 </textarea>
             </label>
-            <button type="submit" onClick={() => {sendReply(message, topicId)}}>Send reply</button>
-
+            <button type="submit" onClick={() => {sendReply(message, topicId, navigate)}}>Send reply</button>
         </>
     )
 }
