@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route, Link, Outlet } from 'react-router-dom'
+import { useState } from 'react'
+import { Routes, Route, Outlet } from 'react-router-dom'
 
 import Home from './Home'
 import TopicDetails from './TopicDetails'
@@ -9,11 +9,13 @@ import PostCreate from  './PostCreate'
 import RegisterForm from './RegisterForm'
 import Layout from './Layout'
 import LoginForm from './LoginForm'
+import Logout from './Logout'
 
 function Main() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     return (
         <div>
-            <Layout />
+            <Layout isLoggedIn={isLoggedIn} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/topics/:topicId" element={<TopicDetails />} />
@@ -21,7 +23,8 @@ function Main() {
                 <Route path="/topics/create" element={<TopicCreate />} />
                 <Route path="/topics/:topicId/reply" element={<PostCreate />} />
                 <Route path="/register" element={<RegisterForm />} />
-                <Route path="/login" element={<LoginForm />} />
+                <Route path="/login" element={<LoginForm setIsLoggedIn={setIsLoggedIn} />} />
+                <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />} />
             </Routes>
             <Outlet />
         </div>

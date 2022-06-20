@@ -2,12 +2,13 @@ import { useState } from "react"
 import React from 'react'
 import axiosInstance from "./axiosInstance"
 
-const loginSend = (data) => {
+const loginSend = (data, setIsLoggedIn) => {
     // post data to api
     axiosInstance.post('/login', data)
         .then(response => {
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("username", response.data.username)
+            setIsLoggedIn(true)
             console.log(response)
         })
         .catch(error => {
@@ -15,7 +16,7 @@ const loginSend = (data) => {
         })
 }
 
-function LoginForm() {
+function LoginForm({setIsLoggedIn}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -35,7 +36,7 @@ function LoginForm() {
                 password:
                 <input type="password" name="password" onChange={(e) => { setPassword(e.target.value) }}></input>
             </label>
-            <button type="submit" onClick={() => {loginSend(user)}}>Submit</button>
+            <button type="submit" onClick={() => {loginSend(user, setIsLoggedIn)}}>Submit</button>
         </>
     )
 }

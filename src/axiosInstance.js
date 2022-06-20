@@ -9,7 +9,7 @@ axiosInstance.interceptors.request.use(config => {
         config.headers.Authorization = token
     }
     else{
-        delete config.headers.Authorization
+        // config.headers.Authorization = ""
     }
     return config
 })
