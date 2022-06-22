@@ -7,7 +7,7 @@ import UpdateTopic from "./UpdateTopic"
 function TopicItem({topic}) {
     return (
         <div className="topicItem">
-            <h3>{topic?.user?.username}</h3>
+            <h3>{"Author: " + topic?.user?.username}</h3>
             <Link to={`/topics/${topic?.id}`}>
                 <h2>{topic?.title}</h2>
             </Link> 

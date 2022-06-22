@@ -4,7 +4,7 @@ import React from 'react'
 import axiosInstance from './axiosInstance';
 
 const getTopicList = (setTopics) => {
-    console.log("cxvxcv")
+  
     axiosInstance.get("/topics")
         .then(response => {
             console.log(response)
