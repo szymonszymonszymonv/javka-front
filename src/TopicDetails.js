@@ -31,7 +31,7 @@ function TopicDetails() {
         <>
             <h3>topic created by: {topic?.user?.username}</h3>
             <h2>topic title: {topic?.title}</h2>
-            <PostList posts={topic?.posts} />
+            <PostList posts={topic?.posts} topicId={topic?.id}/>
             
             <PostCreate topicId={topic?.id}/>
             

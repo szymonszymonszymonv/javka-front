@@ -1,10 +1,10 @@
 import PostItem from "./PostItem"
 import React from 'react'
 
-function PostList({posts}) {
+function PostList({posts, topicId}) {
     return (
         <>
-            {posts?.map(post => {return <PostItem post={post} key={post.id} />})}
+            {posts?.map(post => {return <PostItem post={post} topicId={topicId} key={post.id} />})}
         </>
     )
 }
