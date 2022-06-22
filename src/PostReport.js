@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 const sendPostReport = (post, topicId) => {
     console.log("kupcia")
     const data = {
-        topicId: topicId,
+        topicId: topicId.toString(),
         content: post?.content
     }
     axiosInstance.post(`/posts/${post?.id}/report`, data)

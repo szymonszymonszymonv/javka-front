@@ -24,16 +24,16 @@ function PostCreate({ topicId }) {
     const [message, setMessage] = useState('')
     const navigate = useNavigate()
     return (
-        <>
+        <div className='postCreate'>
             <label>
                 Write your message:
                 <textarea type="text" name="message" value={message}
                     onChange={(e) => {setMessage(e.target.value)}} >
 
                 </textarea>
+                <button type="submit" onClick={() => {sendReply(message, topicId, navigate)}}>Send reply</button>
             </label>
-            <button type="submit" onClick={() => {sendReply(message, topicId, navigate)}}>Send reply</button>
-        </>
+        </div>
     )
 }
 

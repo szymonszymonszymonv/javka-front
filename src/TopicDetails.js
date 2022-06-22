@@ -28,14 +28,14 @@ function TopicDetails() {
     }, [])
 
     return (
-        <>
-            <h3>topic created by: {topic?.user?.username}</h3>
-            <h2>topic title: {topic?.title}</h2>
+        <div>
+            <div className="topicDetails">
+                <h3>topic created by: {topic?.user?.username}</h3>
+                <h2>topic title: {topic?.title}</h2>
+            </div>
             <PostList posts={topic?.posts} topicId={topic?.id}/>
-            
             <PostCreate topicId={topic?.id}/>
-            
-        </>
+        </div>
     )
 }
 

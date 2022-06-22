@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
 import axiosInstance from './axiosInstance'
 
-const sendTopic = (title) => {
+const sendTopic = (title, navigate) => {
     const username = localStorage.getItem("username")
     const token = localStorage.getItem("token")
     const data = {
@@ -11,6 +12,7 @@ const sendTopic = (title) => {
     axiosInstance.post(`/topics/create`, data)
     .then(response => {
         console.log(response)
+        navigate("/topics")
     })
     .catch(error => {
         console.log(error)
@@ -19,7 +21,7 @@ const sendTopic = (title) => {
 
 function TopicCreate() {
     const [title, setTitle] = useState('')
-
+    const navigate = useNavigate()
     return (
         <>
             <label>
@@ -29,7 +31,7 @@ function TopicCreate() {
 
                 </input>
             </label>
-            <button type="submit" onClick={() => {sendTopic(title)}}>Send reply</button>
+            <button type="submit" onClick={() => {sendTopic(title, navigate)}}>Send reply</button>
         </>
     )
 }

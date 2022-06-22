@@ -1,12 +1,14 @@
 import { useState } from "react"
 import React from 'react'
 import axiosInstance from "./axiosInstance"
+import { useNavigate } from "react-router"
 
-const registerSend = (data) => {
+const registerSend = (data, navigate) => {
     // post data to api
     axiosInstance.post('/registration', data)
         .then(response => {
             console.log(response)
+            navigate("/")
         })
         .catch(error => {
             console.log(error)
@@ -19,6 +21,7 @@ function RegisterForm() {
     const [password, setPassword] = useState('')
     const [passwordRepeat, setPasswordRepeat] = useState('')
     const [role, setRole] = useState('')
+    const navigate = useNavigate()
 
     // send this guy to api
     const newUser = { 
@@ -55,7 +58,7 @@ function RegisterForm() {
                 admin
                 <input type="radio" name="roleAdmin" checked={role === "ADMIN"} onChange={() => {setRole("ADMIN")}}></input>
             </label>
-            <button type="submit" onClick={() => {registerSend(newUser)}}>Submit</button>
+            <button type="submit" onClick={() => {registerSend(newUser, navigate)}}>Submit</button>
         </>
     )
 }
