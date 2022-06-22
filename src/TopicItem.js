@@ -4,6 +4,8 @@ import React from 'react'
 import DeleteTopic from "./DeleteTopic"
 import TopicFollow from "./TopicFollow"
 import UpdateTopic from "./UpdateTopic"
+import TopicReport from "./TopicReport"
+
 function TopicItem({topic}) {
     return (
         <div className="topicItem">
@@ -14,6 +16,7 @@ function TopicItem({topic}) {
             <UpdateTopic topic={topic}/>
             <DeleteTopic topic={topic} />
             <TopicFollow topic={topic} />
+            <TopicReport topic={topic} />
         </div>
     )
 }
