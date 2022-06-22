@@ -4,9 +4,13 @@ import axiosInstance from './axiosInstance'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
 
-const sendPostReport = (postId) => {
+const sendPostReport = (post, topicId) => {
     console.log("kupcia")
-    axiosInstance.post(`/topics/${postId}/report`)
+    const data = {
+        topicId: topicId,
+        content: post?.content
+    }
+    axiosInstance.post(`/posts/${post?.id}/report`, data)
         .then(response => {
             console.log(response)
             window.location.reload()
@@ -17,10 +21,10 @@ const sendPostReport = (postId) => {
         })
 }
 
-function PostReport({ post }) {
+function PostReport({ post, topicId }) {
     return (
         <>
-            <button type="submit" onClick={() => {sendPostReport(post.id)}}>Report post</button>
+            <button type="submit" onClick={() => {sendPostReport(post, topicId)}}>Report post</button>
         </>
     )
 }
