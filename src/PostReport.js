@@ -5,7 +5,7 @@ import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
 
 const sendPostReport = (postId) => {
-    console.log("kupcia")
+
     axiosInstance.post(`/topics/${postId}/report`)
         .then(response => {
             console.log(response)
