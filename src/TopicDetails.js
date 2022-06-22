@@ -7,28 +7,6 @@ import axiosInstance from "./axiosInstance";
 import UpdateTopic from "./UpdateTopic";
 import UpdatePost from "./UpdatePost";
 
-const topicDetails = {
-    id: 1,
-    title: "where?",
-    createdBy: "user",
-    responses: [
-        {
-            id: 1,
-            content: "response1",
-            createdBy: "user2"
-        },
-        {
-            id: 2,
-            content: "default",
-            createdBy: "user3"
-        },
-        {
-            id: 3,
-            content: "hiho",
-            createdBy: "user4"
-        }
-    ]
-}
 
 const getTopicDetails = (setTopicDetails, topicId) => {
     axiosInstance.get(`/topics/${topicId}`)
@@ -56,7 +34,7 @@ function TopicDetails() {
             <PostList posts={topic?.posts} />
             
             <PostCreate topicId={topic?.id}/>
-            {/* <Link to={`/topics/${topicDetails.id}/reply`}>Reply to topic</Link> */}
+            
         </>
     )
 }

@@ -3,26 +3,6 @@ import TopicItem from './TopicItem'
 import React from 'react'
 import axiosInstance from './axiosInstance';
 
-const topicList = [
-    {
-        id: 1,
-        title: 'where to find diamonds?',
-        createdBy: 'lightt',
-        replies: 5
-    },
-    {
-        id: 2,
-        title: 'when?',
-        createdBy: 'x',
-        replies: 0
-    },
-    {
-        id: 3,
-        title: 'where?',
-        createdBy: 'y',
-        replies: 2
-    },
-]
 const getTopicList = (setTopics) => {
     console.log("cxvxcv")
     axiosInstance.get("/topics")
@@ -36,7 +16,7 @@ const getTopicList = (setTopics) => {
 }
 
 function TopicList() {
-    const [topics, setTopics] = useState(topicList)
+    const [topics, setTopics] = useState([])
     useEffect(() => {
         getTopicList(setTopics)
         
