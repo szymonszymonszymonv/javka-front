@@ -4,6 +4,8 @@ import PostList from "./PostList";
 import React from 'react'
 import PostCreate from "./PostCreate";
 import axiosInstance from "./axiosInstance";
+import UpdateTopic from "./UpdateTopic";
+import UpdatePost from "./UpdatePost";
 
 const topicDetails = {
     id: 1,
@@ -52,6 +54,7 @@ function TopicDetails() {
             <h3>topic created by: {topic?.user?.username}</h3>
             <h2>topic title: {topic?.title}</h2>
             <PostList posts={topic?.posts} />
+            
             <PostCreate topicId={topic?.id}/>
             {/* <Link to={`/topics/${topicDetails.id}/reply`}>Reply to topic</Link> */}
         </>

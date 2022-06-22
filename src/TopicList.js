@@ -24,7 +24,7 @@ const topicList = [
     },
 ]
 const getTopicList = (setTopics) => {
-    console.log("kupka")
+    console.log("cxvxcv")
     axiosInstance.get("/topics")
         .then(response => {
             console.log(response)
